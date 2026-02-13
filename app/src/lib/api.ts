@@ -3,8 +3,10 @@ import type { Screenshot, ScreenshotRequest, Settings, BrowserInfo, Stats } from
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  public status: number;
+  constructor(status: number, message: string) {
     super(message);
+    this.status = status;
     this.name = 'ApiError';
   }
 }
@@ -30,7 +32,6 @@ async function fetchApi<T>(
 }
 
 export const api = {
-  // Screenshots
   createScreenshot: (data: ScreenshotRequest) =>
     fetchApi<Screenshot>('/api/screenshot', {
       method: 'POST',
@@ -52,7 +53,6 @@ export const api = {
   previewScreenshot: (id: string) =>
     fetchApi<{ id: string; image: string; filename: string }>(`/api/screenshot/${id}/preview`),
 
-  // History
   getHistory: (params?: { limit?: number; offset?: number; status?: string }) => {
     const searchParams = new URLSearchParams();
     if (params?.limit) searchParams.append('limit', params.limit.toString());
@@ -68,7 +68,6 @@ export const api = {
       method: 'DELETE',
     }),
 
-  // Settings
   getSettings: () =>
     fetchApi<{ settings: Settings }>('/api/settings'),
 
@@ -83,15 +82,12 @@ export const api = {
       method: 'POST',
     }),
 
-  // Browsers
   getBrowsers: () =>
     fetchApi<{ browsers: BrowserInfo[] }>('/api/browsers'),
 
-  // Stats
   getStats: () =>
     fetchApi<Stats>('/api/stats'),
 
-  // Health
   healthCheck: () =>
     fetchApi<{ status: string; timestamp: string }>('/health'),
 };

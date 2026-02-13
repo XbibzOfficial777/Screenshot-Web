@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { api } from '@/lib/api';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
@@ -137,7 +136,6 @@ export function HistoryPage() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
@@ -153,7 +151,6 @@ export function HistoryPage() {
         </Button>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           { label: 'Total', value: screenshots.length, color: 'bg-blue-500' },
@@ -175,7 +172,6 @@ export function HistoryPage() {
         ))}
       </div>
 
-      {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <Input
@@ -186,7 +182,6 @@ export function HistoryPage() {
         />
       </div>
 
-      {/* Screenshots List */}
       <Card className="border-border/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -214,12 +209,10 @@ export function HistoryPage() {
                       key={screenshot.id}
                       className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors group"
                     >
-                      {/* Status Icon */}
                       <div className={`w-10 h-10 rounded-full ${status.color}/10 flex items-center justify-center flex-shrink-0`}>
                         <StatusIcon className={`w-5 h-5 ${status.color.replace('bg-', 'text-')}`} />
                       </div>
 
-                      {/* Info */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <Globe className="w-4 h-4 text-muted-foreground flex-shrink-0" />
@@ -240,7 +233,6 @@ export function HistoryPage() {
                         </div>
                       </div>
 
-                      {/* Actions */}
                       <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         {screenshot.status === 'completed' && (
                           <>
@@ -297,7 +289,6 @@ export function HistoryPage() {
         </CardContent>
       </Card>
 
-      {/* Preview Dialog */}
       <Dialog open={previewOpen} onOpenChange={setPreviewOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
           <DialogHeader>
@@ -336,7 +327,6 @@ export function HistoryPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Delete Confirmation Dialog */}
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>

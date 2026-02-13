@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { api } from '@/lib/api';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Separator } from '@/components/ui/separator';
 import { 
   BarChart3, 
   Camera, 
@@ -13,7 +11,6 @@ import {
   Globe, 
   HardDrive,
   TrendingUp,
-  Monitor,
   Loader2
 } from 'lucide-react';
 import type { Stats } from '@/types';
@@ -61,7 +58,6 @@ export function Statistics() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
           Statistics
@@ -71,7 +67,6 @@ export function Statistics() {
         </p>
       </div>
 
-      {/* Main Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="border-border/50 bg-gradient-to-br from-card to-card/50">
           <CardContent className="p-6">
@@ -131,9 +126,7 @@ export function Statistics() {
         </Card>
       </div>
 
-      {/* Detailed Stats */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Status Breakdown */}
         <Card className="border-border/50">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -145,7 +138,6 @@ export function Statistics() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Completed */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -160,7 +152,6 @@ export function Statistics() {
               />
             </div>
 
-            {/* Failed */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -175,7 +166,6 @@ export function Statistics() {
               />
             </div>
 
-            {/* Pending */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -192,7 +182,6 @@ export function Statistics() {
           </CardContent>
         </Card>
 
-        {/* Top Domains */}
         <Card className="border-border/50">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -229,7 +218,6 @@ export function Statistics() {
         </Card>
       </div>
 
-      {/* Storage Info */}
       <Card className="border-border/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

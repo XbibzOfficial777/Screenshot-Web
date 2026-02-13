@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { api } from '@/lib/api';
-import { useTheme } from '@/hooks/useTheme';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -44,7 +43,6 @@ const browsers = [
 ];
 
 export function Dashboard() {
-  const { resolvedTheme } = useTheme();
   const [url, setUrl] = useState('');
   const [settings, setSettings] = useState<Partial<Settings>>({
     browser: 'chrome',
@@ -89,11 +87,9 @@ export function Dashboard() {
       });
       setScreenshot(response);
       
-      // Load preview
       const previewData = await api.previewScreenshot(response.id);
       setPreview(previewData.image);
       
-      // Refresh recent screenshots
       loadRecentScreenshots();
     } catch (err: any) {
       setError(err.message || 'Failed to capture screenshot');
@@ -127,7 +123,6 @@ export function Dashboard() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
@@ -144,7 +139,6 @@ export function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-        {/* Screenshot Form */}
         <Card className="border-border/50 shadow-xl shadow-primary/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -157,7 +151,6 @@ export function Dashboard() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* URL Input */}
               <div className="space-y-2">
                 <Label htmlFor="url" className="flex items-center gap-2">
                   <Globe className="w-4 h-4" />
@@ -179,7 +172,6 @@ export function Dashboard() {
                   <TabsTrigger value="options">Options</TabsTrigger>
                 </TabsList>
 
-                {/* Browser Tab */}
                 <TabsContent value="browser" className="space-y-4 pt-4">
                   <Label>Select Browser</Label>
                   <div className="grid grid-cols-2 gap-3">
@@ -203,7 +195,6 @@ export function Dashboard() {
                   </div>
                 </TabsContent>
 
-                {/* Size Tab */}
                 <TabsContent value="size" className="space-y-4 pt-4">
                   <Label>Presets</Label>
                   <div className="grid grid-cols-2 gap-3">
@@ -256,7 +247,6 @@ export function Dashboard() {
                   </div>
                 </TabsContent>
 
-                {/* Options Tab */}
                 <TabsContent value="options" className="space-y-4 pt-4">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -335,9 +325,7 @@ export function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Preview & Results */}
         <div className="space-y-6">
-          {/* Preview Card */}
           <Card className="border-border/50 shadow-xl shadow-primary/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -387,7 +375,6 @@ export function Dashboard() {
             </CardContent>
           </Card>
 
-          {/* Recent Screenshots */}
           <Card className="border-border/50">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
