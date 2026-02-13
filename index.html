@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browser Screenshot Pro - Advanced browser screenshot tool with Selenium. Capture beautiful screenshots of any website with customizable settings." />
+    <meta name="keywords" content="screenshot, browser, selenium, web capture, screenshot tool, website screenshot" />
+    <meta name="author" content="Browser Screenshot Pro" />
+    <meta name="theme-color" content="#000000" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Browser Screenshot Pro" />
+    <meta property="og:description" content="Advanced browser screenshot tool with Selenium automation" />
+    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Browser Screenshot Pro" />
+    <meta property="twitter:description" content="Advanced browser screenshot tool with Selenium automation" />
+    <meta property="twitter:image" content="/og-image.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <title>Browser Screenshot Pro | Advanced Web Capture Tool</title>
+    
+    <!-- Prevent flash of wrong theme -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = theme === 'dark' || (theme === 'system' && systemDark);
+        document.documentElement.classList.add(isDark ? 'dark' : 'light');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

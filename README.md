@@ -1,365 +1,297 @@
 # 🌐 Browser Screenshot Pro
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white" alt="Selenium">
-</p>
+A modern, powerful browser screenshot application built with **React + TypeScript + Tailwind CSS** frontend and **Python FastAPI + Selenium** backend. Deploy automatically to **GitHub Pages** with **GitHub Actions**!
 
-<p align="center">
-  <b>🚀 Advanced Browser Automation & Screenshot Platform</b><br>
-  Modern, responsive, and feature-rich screenshot capture tool with dark/light mode support
-</p>
-
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#demo">Demo</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#deployment">Deployment</a> •
-  <a href="#api">API</a>
-</p>
-
----
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwindcss)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi)
 
 ## ✨ Features
 
-### 🎨 Frontend (TypeScript + React)
+### 🎨 Frontend
 - **Modern UI/UX** - Beautiful, responsive design with Tailwind CSS
-- **🌓 Dark/Light Mode** - Automatic theme detection with manual toggle
-- **📊 Dashboard** - Intuitive screenshot capture interface
-- **📜 History** - Complete screenshot history with search and filter
-- **📈 Statistics** - Visual analytics and performance metrics
-- **⚙️ Settings** - Comprehensive browser configuration
-- **🔍 Preview** - Real-time screenshot preview before download
-- **📱 Responsive** - Works perfectly on desktop, tablet, and mobile
+- **Dark/Light Theme** - Automatic theme detection with manual toggle
+- **Dashboard** - Intuitive screenshot capture interface
+- **Settings** - Comprehensive browser configuration
+- **History** - Track and manage past screenshots
+- **Real-time Preview** - Instant screenshot preview with download
+- **Mobile Responsive** - Works seamlessly on all devices
 
-### 🐍 Backend (Python + FastAPI)
-- **⚡ FastAPI** - High-performance async API framework
-- **🌐 Selenium** - Multi-browser support (Chrome, Firefox, Edge, Safari)
-- **📸 Advanced Capture** - Full-page, viewport, or element-specific screenshots
-- **⚙️ Configurable** - Extensive browser settings and options
-- **📁 File Management** - Automatic screenshot organization
-- **🔒 Secure** - CORS enabled, input validation
-- **📚 API Documentation** - Auto-generated Swagger/OpenAPI docs
+### ⚙️ Backend
+- **Selenium WebDriver** - Advanced browser automation
+- **FastAPI** - High-performance Python web framework
+- **Custom Viewport** - Set any screen resolution
+- **Full Page Capture** - Capture entire scrollable pages
+- **User Agent Spoofing** - Mimic different browsers/devices
+- **Element Hiding** - Remove unwanted elements (cookies, ads, popups)
+- **Dark Mode Emulation** - Force dark mode on websites
+- **Delay Control** - Wait for lazy-loaded content
 
-### 🚀 DevOps
-- **🐳 Docker** - Complete containerization with multi-stage builds
-- **⚙️ GitHub Actions** - Automated testing, building, and deployment
-- **☁️ Multi-Platform Deploy** - Support for VPS, Railway, Heroku, Vercel
-- **🔔 Notifications** - Discord and email deployment notifications
+### 🚀 Deployment
+- **GitHub Actions** - Automated CI/CD pipeline
+- **GitHub Pages** - Free static site hosting
+- **One-Click Deploy** - Just push to main branch!
 
----
+## 📸 Screenshots
 
-## 🎯 Demo
+*Coming soon...*
 
-### Dashboard
-![Dashboard](https://via.placeholder.com/800x400/3b82f6/ffffff?text=Dashboard+Preview)
-
-### Settings
-![Settings](https://via.placeholder.com/800x400/10b981/ffffff?text=Settings+Preview)
-
-### Dark Mode
-![Dark Mode](https://via.placeholder.com/800x400/1f2937/ffffff?text=Dark+Mode+Preview)
-
----
-
-## 📦 Installation
+## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 20+
 - Python 3.11+
-- Chrome/Firefox/Edge browser
-- Docker (optional)
+- Chrome/Chromium browser
 
-### Quick Start
+### 1. Fork & Clone
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/yourusername/browser-screenshot-pro.git
+# Fork this repository on GitHub, then clone
+git clone https://github.com/YOUR_USERNAME/browser-screenshot-pro.git
 cd browser-screenshot-pro
+```
 
-# 2. Setup Backend
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+### 2. Install Frontend Dependencies
 
-# 3. Setup Frontend
-cd ../app
+```bash
 npm install
+```
 
-# 4. Start Development Servers
-# Terminal 1 - Backend
+### 3. Install Backend Dependencies
+
+```bash
 cd backend
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+pip install -r requirements.txt
+cd ..
+```
 
-# Terminal 2 - Frontend
-cd app
+### 4. Configure Environment
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+### 5. Run Development Servers
+
+**Terminal 1 - Backend:**
+```bash
+cd backend
+python main.py
+```
+
+**Terminal 2 - Frontend:**
+```bash
 npm run dev
 ```
 
-### Docker Deployment
+Visit `http://localhost:5173` 🎉
 
-```bash
-# Build and run with Docker Compose
-docker-compose up -d
-
-# Or build manually
-docker build -t browser-screenshot-pro .
-docker run -p 8000:8000 -p 80:80 browser-screenshot-pro
-```
-
----
-
-## 🚀 Usage
-
-### Web Interface
-
-1. **Open Dashboard** - Visit `http://localhost:5173`
-2. **Enter URL** - Type the website URL to capture
-3. **Configure Settings** - Select browser, size, and options
-4. **Capture** - Click "Capture Screenshot" button
-5. **Download** - Preview and download your screenshot
-
-### API Endpoints
-
-#### Capture Screenshot
-```bash
-curl -X POST "http://localhost:8000/api/screenshot" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "url": "https://example.com",
-    "browser": "chrome",
-    "window_width": 1920,
-    "window_height": 1080,
-    "full_page": true
-  }'
-```
-
-#### Get Settings
-```bash
-curl "http://localhost:8000/api/settings"
-```
-
-#### Update Settings
-```bash
-curl -X POST "http://localhost:8000/api/settings" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "browser": "firefox",
-    "dark_mode": true
-  }'
-```
-
-#### Get History
-```bash
-curl "http://localhost:8000/api/history?limit=10"
-```
-
----
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-Create `.env` file in `app/` directory:
-
-```env
-# Frontend
-VITE_API_URL=http://localhost:8000
-VITE_APP_NAME=Browser Screenshot Pro
-VITE_APP_VERSION=2.0.0
-```
-
-### Browser Settings
-
-| Setting | Description | Default |
-|---------|-------------|---------|
-| `browser` | Browser to use (chrome, firefox, edge, safari) | chrome |
-| `window_width` | Browser window width | 1920 |
-| `window_height` | Browser window height | 1080 |
-| `full_page` | Capture full page or viewport | true |
-| `delay` | Wait time before capture (seconds) | 0 |
-| `dark_mode` | Force dark mode | false |
-| `headless` | Run browser headless | true |
-| `javascript_enabled` | Enable JavaScript | true |
-| `images_enabled` | Load images | true |
-| `block_ads` | Block advertisements | false |
-
----
-
-## 🚀 Deployment
-
-### GitHub Actions Auto-Deploy
-
-This project includes a complete GitHub Actions workflow for automatic deployment:
-
-#### Supported Platforms
-
-1. **VPS/Server** (via SSH)
-2. **Railway** (via CLI)
-3. **Heroku** (via API)
-4. **Vercel** (for frontend)
-
-#### Required Secrets
-
-Go to `Settings > Secrets and variables > Actions` and add:
-
-| Secret | Description | Required For |
-|--------|-------------|--------------|
-| `SSH_HOST` | Server IP address | VPS |
-| `SSH_USERNAME` | SSH username | VPS |
-| `SSH_PRIVATE_KEY` | SSH private key | VPS |
-| `SSH_PORT` | SSH port (default: 22) | VPS |
-| `DEPLOY_PATH` | Deployment directory | VPS |
-| `RAILWAY_TOKEN` | Railway API token | Railway |
-| `HEROKU_API_KEY` | Heroku API key | Heroku |
-| `HEROKU_APP_NAME` | Heroku app name | Heroku |
-| `HEROKU_EMAIL` | Heroku account email | Heroku |
-| `VERCEL_TOKEN` | Vercel token | Vercel |
-| `VERCEL_ORG_ID` | Vercel organization ID | Vercel |
-| `VERCEL_PROJECT_ID` | Vercel project ID | Vercel |
-| `DISCORD_WEBHOOK` | Discord webhook URL | Notifications |
-| `SMTP_SERVER` | SMTP server | Email notifications |
-| `NOTIFICATION_EMAIL` | Notification recipient | Email notifications |
-
-#### Deploy on Push
-
-Simply push to `main` or `master` branch:
-
-```bash
-git add .
-git commit -m "🚀 Deploy new features"
-git push origin main
-```
-
-GitHub Actions will automatically:
-1. ✅ Run tests
-2. 🏗️ Build frontend
-3. 🐳 Build Docker image
-4. 🚀 Deploy to configured platforms
-5. 📢 Send notifications
-
----
-
-## 📚 API Documentation
-
-### Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | API info |
-| GET | `/health` | Health check |
-| POST | `/api/screenshot` | Capture screenshot (sync) |
-| POST | `/api/screenshot/async` | Capture screenshot (async) |
-| GET | `/api/screenshot/{id}/status` | Get screenshot status |
-| GET | `/api/screenshot/{id}/download` | Download screenshot |
-| GET | `/api/screenshot/{id}/preview` | Preview screenshot (base64) |
-| GET | `/api/history` | Get screenshot history |
-| DELETE | `/api/history/{id}` | Delete screenshot |
-| GET | `/api/settings` | Get settings |
-| POST | `/api/settings` | Update settings |
-| POST | `/api/settings/reset` | Reset settings |
-| GET | `/api/browsers` | Get available browsers |
-| GET | `/api/stats` | Get statistics |
-
-### Interactive Docs
-
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-
----
-
-## 🛠️ Development
-
-### Project Structure
+## 📁 Project Structure
 
 ```
 browser-screenshot-pro/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Actions workflow
-├── app/                        # Frontend (React + TypeScript)
-│   ├── src/
-│   │   ├── components/         # React components
-│   │   ├── hooks/              # Custom hooks
-│   │   ├── lib/                # API client
-│   │   ├── sections/           # Page sections
-│   │   ├── types/              # TypeScript types
-│   │   ├── App.tsx             # Main app
-│   │   └── index.css           # Global styles
-│   ├── package.json
-│   └── vite.config.ts
-├── backend/                    # Backend (Python + FastAPI)
-│   ├── app/
-│   │   └── main.py             # FastAPI application
-│   └── requirements.txt
-├── screenshots/                # Screenshot storage
-├── Dockerfile                  # Multi-stage Docker build
-├── docker-compose.yml          # Docker Compose config
-├── nginx.conf                  # Nginx configuration
-└── README.md                   # This file
+│       └── deploy.yml          # GitHub Actions CI/CD
+├── backend/
+│   ├── main.py                 # FastAPI application
+│   └── requirements.txt        # Python dependencies
+├── src/
+│   ├── components/             # React components
+│   │   ├── Navigation.tsx
+│   │   └── ThemeToggle.tsx
+│   ├── contexts/               # React contexts
+│   │   └── ThemeContext.tsx
+│   ├── sections/               # Page sections
+│   │   ├── Dashboard.tsx
+│   │   ├── Settings.tsx
+│   │   └── History.tsx
+│   ├── services/               # API services
+│   │   └── api.ts
+│   ├── types/                  # TypeScript types
+│   │   └── index.ts
+│   ├── App.tsx
+│   ├── App.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-### Adding New Features
+## 🌐 Deployment to GitHub Pages
 
-1. **Frontend Components**
-   ```bash
-   cd app/src/components
-   # Create new component
-   ```
+### 1. Enable GitHub Pages
 
-2. **API Endpoints**
-   ```bash
-   cd backend/app
-   # Edit main.py to add endpoints
-   ```
+1. Go to **Settings** → **Pages** in your GitHub repository
+2. Set **Source** to "GitHub Actions"
 
-3. **Tests**
-   ```bash
-   # Frontend tests
-   cd app && npm test
-   
-   # Backend tests
-   cd backend && pytest
-   ```
+### 2. Configure Repository
 
----
+Make sure your repository settings allow GitHub Actions:
+
+1. Go to **Settings** → **Actions** → **General**
+2. Under "Workflow permissions", select "Read and write permissions"
+
+### 3. Push to Deploy
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
+
+GitHub Actions will automatically:
+- ✅ Build the React application
+- ✅ Deploy to GitHub Pages
+- 🚀 Your site will be live at `https://YOUR_USERNAME.github.io/browser-screenshot-pro/`
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_URL` | Backend API URL | `http://localhost:8000` |
+| `PORT` | Backend server port | `8000` |
+
+### Browser Settings
+
+Configure default browser behavior in the **Settings** page:
+
+- **Viewport** - Default screen resolution
+- **Delay** - Wait time before capture
+- **Format** - PNG, JPEG, or WebP
+- **Quality** - Image compression level
+- **User Agent** - Browser identification
+- **Language** - Browser language
+- **Timezone** - Browser timezone
+- **Headless Mode** - Run without visible window
+- **Disable Images** - Block image loading
+- **Disable JavaScript** - Disable JS execution
+
+## 🔧 Advanced Usage
+
+### Custom Viewport Presets
+
+Quick-select common device resolutions:
+
+| Device | Width | Height |
+|--------|-------|--------|
+| Desktop HD | 1920 | 1080 |
+| Desktop | 1366 | 768 |
+| Laptop | 1440 | 900 |
+| Tablet (Landscape) | 1024 | 768 |
+| Tablet (Portrait) | 768 | 1024 |
+| Mobile Large | 414 | 896 |
+| Mobile Medium | 375 | 812 |
+| Mobile Small | 320 | 568 |
+
+### Hide Elements
+
+Remove unwanted elements using CSS selectors:
+
+```
+.cookie-banner, .ads, #popup, .newsletter
+```
+
+### Wait For Element
+
+Wait for specific elements to load before capturing:
+
+```
+.main-content, #loaded, [data-loaded="true"]
+```
+
+## 🛠️ API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | API info |
+| `/api/screenshot` | POST | Capture screenshot |
+| `/api/settings` | GET | Get settings |
+| `/api/settings` | POST | Update settings |
+| `/api/history` | GET | Get history |
+| `/api/history` | DELETE | Clear history |
+| `/api/user-agents` | GET | List user agents |
+| `/api/viewport-presets` | GET | List viewport presets |
+
+### Screenshot Request
+
+```json
+{
+  "url": "https://example.com",
+  "viewport_width": 1920,
+  "viewport_height": 1080,
+  "full_page": false,
+  "delay": 2,
+  "user_agent": "Mozilla/5.0...",
+  "dark_mode": false,
+  "format": "png",
+  "quality": 90,
+  "hide_elements": [".cookie-banner"],
+  "wait_for_selector": ".main-content"
+}
+```
+
+## 🐳 Docker Support (Optional)
+
+Create a `Dockerfile`:
+
+```dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install Chrome dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    gnupg \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable
+
+COPY backend/requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY backend/ .
+
+EXPOSE 8000
+
+CMD ["python", "main.py"]
+```
+
+## 📝 License
+
+MIT License - feel free to use this project for personal or commercial purposes!
 
 ## 🤝 Contributing
 
+Contributions are welcome! Please feel free to submit a Pull Request.
+
 1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see [LICENSE](LICENSE) file.
-
----
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 🙏 Acknowledgments
 
-- [FastAPI](https://fastapi.tiangolo.com/) - Modern web framework
-- [Selenium](https://www.selenium.dev/) - Browser automation
-- [React](https://reactjs.org/) - UI library
+- [React](https://react.dev/) - UI library
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [FastAPI](https://fastapi.tiangolo.com/) - Web framework
+- [Selenium](https://www.selenium.dev/) - Browser automation
 
 ---
 
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a>
-</p>
+Made with ❤️ by [Your Name]
 
-<p align="center">
-  ⭐ Star this repo if you find it helpful!
-</p>
+⭐ Star this repo if you find it helpful!

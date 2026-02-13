@@ -1,78 +1,29 @@
 version: '3.8'
 
 services:
-  # Backend API
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: backend
-    container_name: browser-screenshot-api
-    restart: unless-stopped
+    build: ./backend
     ports:
       - "8000:8000"
-    volumes:
-      - ./screenshots:/app/screenshots
-      - ./backend/app:/app/app
     environment:
-      - PYTHONUNBUFFERED=1
-      - DISPLAY=:99
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-    networks:
-      - browser-screenshot-network
+      - PORT=8000
+    volumes:
+      - ./backend:/app
+    restart: unless-stopped
 
-  # Frontend (Nginx)
+  # Optional: Frontend development server
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile
-      target: nginx
-    container_name: browser-screenshot-frontend
-    restart: unless-stopped
+      dockerfile: Dockerfile.frontend
     ports:
-      - "80:80"
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    command: npm run dev -- --host
     depends_on:
       - backend
-    networks:
-      - browser-screenshot-network
-
-  # Optional: Redis for caching
-  redis:
-    image: redis:7-alpine
-    container_name: browser-screenshot-redis
     restart: unless-stopped
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - browser-screenshot-network
-
-  # Optional: PostgreSQL for persistent storage
-  postgres:
-    image: postgres:15-alpine
-    container_name: browser-screenshot-db
-    restart: unless-stopped
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: screenshot
-      POSTGRES_PASSWORD: screenshot123
-      POSTGRES_DB: browser_screenshot
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - browser-screenshot-network
-
-volumes:
-  redis_data:
-  postgres_data:
-
-networks:
-  browser-screenshot-network:
-    driver: bridge
